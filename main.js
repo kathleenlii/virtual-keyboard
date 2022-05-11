@@ -142,3 +142,76 @@ const keyLayoutRU = [
 ]
 
 
+const codeSet = {
+    ShiftLeft: false,
+    ShiftRight: false,
+    ControlLeft: false,
+    ControlRight: false,
+  }
+  
+  let lang = 'eng'
+  let language = keyLayoutEN
+  let caps = false
+  let capsSwitch = false
+  let shiftCaps = false
+  let shiftSwitch = false
+  let intervalSwitchLang
+  let switchedLanguage = false
+  
+  window.addEventListener('beforeunload', () => {
+    localStorage.setItem('lang', lang)
+    localStorage.setItem('caps', caps)
+  })
+  
+  window.addEventListener('load', () => {
+    if (localStorage.getItem('lang')) {
+      lang = localStorage.getItem('lang')
+    }
+    if (localStorage.getItem('caps') === 'true') {
+      caps = true
+    }
+  })
+  
+  function writeText(content) {
+    const text = document.querySelector('.text')
+    const start = text.selectionStart
+    const end = text.selectionEnd
+    if (caps) {
+      content.toUpperCase()
+    } else {
+      content.toLowerCase()
+    }
+    text.textContent =
+      text.value.substring(0, start) + content + text.value.substring(end)
+    text.focus()
+    text.setSelectionRange(start + 1, start + 1)
+  }
+  
+  function textUp(e) {
+    e.textContent = e.textContent.toLowerCase()
+  }
+  
+  function textLow(e) {
+    e.textContent = e.textContent.toUpperCase()
+  }
+  
+  function toUpToLow() {
+    let index = 0
+    if (!caps) {
+      document.querySelectorAll('.value').forEach((el) => {
+        index += 1
+        if (index < 51) {
+          textUp(el)
+        }
+      })
+    } else {
+      document.querySelectorAll('.value').forEach((el) => {
+        index += 1
+        if (index < 51) {
+          textLow(el)
+        }
+      })
+    }
+  }
+  
+  
