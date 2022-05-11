@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;500&display=swap');
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: rgba(228, 185, 185, 0.137);
+}
+header {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 740px;
+    margin-inline: auto;
+    margin-top: 100px;
+    height: 100%;
+}
+footer {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 740px;
+    margin-inline: auto;
+    margin-top: 30px;
+    height: 100%;
+    text-align: center;
+}
+
+.keyboard-wrapper {
+    background-color: #ff81e431;
+}
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: fit-content;
+}
+.row-key {
+    display: flex;
+    justify-content: space-around;
+}
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 4px;
+    background: #6d2764;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: border-radius 0.3s, background-color 0.3s;
+    font-size: 18px;
+}
+.key:active {
+    background: #8d477e31;
+    border-radius: 50px;
+}
+.key:hover {
+    background: #8d477e31;
+    transform: scale(1.02);
+    animation: pulse-key 1.2s infinite;
+}
+.press {
+    background: #8d477e31;
+    border-radius: 50px;
+    color: #0c060bde;
+    animation: pulse-key 1.2s infinite;
+}
+.key-short {
+    width: 40px;
+    height: 40px;
+}
+.key-long {
+    width: 100px;
+    height: 40px;
+}
+.key-middle {
+    width: 70px;
+    height: 40px;
+}
+.extra {
+    position: absolute;
+    left: 6px;
+    top: 0;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.text {
+    width: 740px;
+    height: 240px;
+    margin: 15px 0;
+    font-size: 24px;
+    padding: 10px;
+    box-sizing: border-box;
+    letter-spacing: 0.8px;
+    background-color: #ff81e431;
+}
